@@ -1,0 +1,14 @@
+.main-cart{
+    margin-top: 100px;
+    margin-left: 100px;
+    
+}
+
+tr th{
+    border: 1px solid black;
+    width: 200px;
+}
+tr td{
+    text-align: center;
+   
+}

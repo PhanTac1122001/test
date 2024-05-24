@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/admincategory.css" />
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+
+    <header class="container">
+        <div class="col-left">
+            <a href=""><i class="fa-solid fa-bars" style="color: black;"></i></a>
+        </div>
+        <div class="col-center">
+
+            <a href="home.html"><img src="https://theme.hstatic.net/1000351433/1001171247/14/logo.png?v=631" alt=""></a>
+            <a href=""><img src="https://file.hstatic.net/1000351433/file/240x100_3ad6fedc038f4e13aba55fc46e785e19.png"
+                    alt=""></a>
+
+        </div>
+        <div class="col-right">
+
+            <a onclick="logOut()"><img src="https://www.svgrepo.com/show/132889/logout.svg" alt=""></a>
+
+        </div>
+    </header>
+
+    <section class="nav-bar">
+        <div class="nav-menu">
+            <ul>
+                <li><a href="admincategory.html">Quản lý danh mục</a></li>
+                <li><a href="adminproduct.html">Quản lý sản phẩm</a></li>
+                <li><a href="user.html">Quản lý User</a></li>
+
+            </ul>
+        </div>
+        <div class="main-form">
+            <section id="form-scope" class="hidden" onsubmit="submitForm(event)">
+                <form id="form-product" class="form-product">
+                    <h4 style="text-align: center">Category</h4>
+                    <div class="scope-input">
+                        <label for="name" class="label-product">Name: </label>
+                        <input id="name" name="name" type="text" />
+                        <p style="color: red;" id="error-name"></p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; gap: 12px">
+                        <button type="button" id="btn-cancel">Cancel</button>
+                        <button type="submit" id="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </section>
+
+            <main style="width: 1200px; margin: 0 auto">
+                <section id="action" style="padding-top: 48px">
+                    <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                        <div>
+                            <button id="btn-add">Add</button>
+                        </div>
+
+                        <div>
+                            <select onchange="changeUser(event)">
+                                <option value="All">Tất cả</option>
+                                <option value="aToZ">A-Z</option>
+                                <option value="zToA">Z-A</option>
+                                <option value="STTAscending">Từ bé đến lớn</option>
+                                <option value="STTDescending">Từ lớn đến bé </option>
+
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" id="text-search" class="search-input" />
+                            <button id="btn-search" class="btn-search">Search</button>
+                        </div>
+                    </div>
+                </section>
+                <section id="table">
+                    <table>
+                        <caption style="font-weight: bold; font-size: 20px; margin: 12px">
+                            Categories table
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <!-- <th>Image</th> -->
+                                <th>Name</th>
+                                <!-- <th>Price</th> -->
+                                <!-- <th>Quantity</th> -->
+                                <!-- <th>Description</th> -->
+                                <!-- <th>Category</th> -->
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </section>
+                <section id="pagination" style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: end;
+                  gap: 24px;
+                ">
+                    <div>
+                        <select name="" id="page-size" onchange="changePageSize(event)">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; justify-content: end; align-items: center">
+                        <button>Previous</button>
+                        <p id="page-list"></p>
+                        <button>Next</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+
+
+
+    <script src="/Module_01/js/admincategory.js"></script>
+</body>
+
+</html>

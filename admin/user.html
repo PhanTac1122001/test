@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/user.css" />
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+
+    <header class="container">
+        <div class="col-left">
+            <a href=""><i class="fa-solid fa-bars" style="color: black;"></i></a>
+        </div>
+        <div class="col-center">
+
+            <a href="../pages/home.html"><img src="https://theme.hstatic.net/1000351433/1001171247/14/logo.png?v=631"
+                    alt=""></a>
+            <a href=""><img src="https://file.hstatic.net/1000351433/file/240x100_3ad6fedc038f4e13aba55fc46e785e19.png"
+                    alt=""></a>
+
+        </div>
+        <div class="col-right">
+
+            <a onclick="logOut()"><img src="https://www.svgrepo.com/show/132889/logout.svg" alt=""></a>
+        </div>
+    </header>
+
+    <section class="nav-bar">
+        <div class="nav-menu">
+            <ul>
+                <li><a href="admincategory.html">Quản lý danh mục</a></li>
+                <li><a href="adminproduct.html">Quản lý sản phẩm</a></li>
+                <li><a href="user.html">Quản lý User</a></li>
+
+            </ul>
+        </div>
+        <div class="main-form">
+            <section id="form-scope" class="hidden" onsubmit="submitForm(event)">
+                <form id="form-product" class="form-product">
+                    <h4 style="text-align: center">Đăng ký</h4>
+                    <div class="scope-input">
+                        <label for="name" class="label-name">Name: </label>
+                        <input id="name" name="name" type="text" placeholder="Name" />
+                        <label for="email" class="label-email">Email: </label>
+                        <input type="email" id="email" name="email" placeholder="Email">
+                        <label for="password" class="label-password">Password: </label>
+                        <input type="password" name="password" id="password" placeholder="Mật Khẩu">
+                        <label for="password" class="label-confirm-password">Confirm Password: </label>
+                        <input type="password" name="confirm-password" id="confirm-password"
+                            placeholder="Nhập Lại Mật Khẩu">
+                        <div>
+                            <label for="gender" class="gender">Giới Tính: </label>
+                            <div>
+                                <input type="radio" id="gender" name="nam" style="width: 20px;">
+                                <p>Nam</p>
+                                <input type="radio" id="gender" name="nu" style="width: 20px;">
+                                <p>Nữ</p>
+                            </div>
+
+                        </div>
+                        <p style="color: red;" id="error-name"></p>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; gap: 12px">
+                        <button type="button" id="btn-cancel">Cancel</button>
+                        <button type="submit" id="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </section>
+
+            <main style="width: 1200px; margin: 0 auto">
+                <section id="action" style="padding-top: 48px">
+                    <div style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                  ">
+                        <div>
+                            <button id="btn-add" class="btn-regiter">Đăng ký</button>
+                        </div>
+                        <div>
+                            <select onchange="changeUser(event)">
+                                <option value="All">Tất cả</option>
+                                <option value="aToZ">A-Z</option>
+                                <option value="zToA">Z-A</option>
+                                <option value="STTAscending">Từ bé đến lớn</option>
+                                <option value="STTDescending">Từ lớn đến bé </option>
+
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" id="text-search" class="search-input" />
+                            <button id="btn-search" class="search-form">Search</button>
+                        </div>
+                    </div>
+                </section>
+                <section id="table">
+                    <table>
+                        <caption style="font-weight: bold; font-size: 20px; margin: 12px">
+                            User table
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>PassWord</th>
+                                <th>Status</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </section>
+                <section id="pagination" style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: end;
+                  gap: 24px;
+                ">
+                    <div>
+                        <select name="" id="page-size" onchange="changePageSize(event)">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                        </select>
+                    </div>
+                    <div style="display: flex; justify-content: end; align-items: center">
+                        <button onclick="changePage(-1)" class="previous">Previous</button>
+                        <p id="page-list"></p>
+                        <button onclick="changePage(1)" class="next">Next</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/user.js"></script>
+</body>
+
+</html>
